@@ -1,0 +1,19 @@
+{
+    "name": "rpgsystemexpress2.0",
+    "version": "2.0.0",
+    "description": "Remake of the rpgsystemexpress",
+    "main": "index.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "keywords": [
+        "rpg",
+        "express"
+    ],
+    "author": "Gabnerd",
+    "license": "MIT",
+    "dependencies": {
+        "ejs": "^3.1.3",
+        "express": "^4.17.1"
+    }
+}
