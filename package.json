@@ -4,7 +4,9 @@
     "description": "Remake of the rpgsystemexpress",
     "main": "index.js",
     "scripts": {
-        "start": "node app.js"
+        "start": "node app.js",
+        "knex:migrate": "knex --knexfile knexfile.js migrate:latest",
+        "knex:migrate:rollback": "knex --knexfile knexfile.js migrate:rollback"
     },
     "keywords": [
         "rpg",
@@ -12,8 +14,17 @@
     ],
     "author": "Gabnerd",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Gabnerd/RPGSystemExpress2.0.git"
+    },
     "dependencies": {
+        "cors": "^2.8.5",
         "ejs": "^3.1.3",
-        "express": "^4.17.1"
+        "express": "^4.17.1",
+        "jquery": "^3.5.1",
+        "knex": "^0.21.4",
+        "socket.io": "^2.3.0",
+        "sqlite3": "^5.0.0"
     }
 }
