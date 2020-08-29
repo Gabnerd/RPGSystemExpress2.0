@@ -25,7 +25,7 @@ module.exports = class PlayerController {
             });
             setTimeout(() => {
                 res.json(playersObj);
-            }, 5);
+            }, 30);
         } catch (error) {
             res.json({ error: error });
             console.log(error);
@@ -127,9 +127,15 @@ module.exports = class PlayerController {
                     valor: expo.valor
                 }
             });
-            await trx('item').insert(playerItens);
-            await trx('ataque').insert(playerAtaques);
-            await trx('exposicao').insert(playerExpo);
+            if (playerItens.length > 0) {
+                await trx('item').insert(playerItens);
+            }
+            if (playerAtaques.length > 0) {
+                await trx('ataque').insert(playerAtaques);
+            }
+            if (playerExpo.length > 0) {
+                await trx('exposicao').insert(playerExpo);
+            }
 
             await trx.commit();
 
@@ -137,7 +143,7 @@ module.exports = class PlayerController {
         } catch (error) {
             await trx.rollback();
             return res.status(400).json({
-                error: 'Unexpected error while creating new class'
+                error: error
             });
         }
     }

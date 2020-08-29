@@ -19,7 +19,19 @@ app.use('/socket', express.static(__dirname + '/node_modules/socket.io-client/di
 app.use(indexRouter);
 app.use(mestreRouter);
 require('./router/player.router')(app);
+require('./router/ataque.router')(app);
+require('./router/exposicao.router')(app);
+require('./router/item.router')(app);
 
-app.listen(3333, () => {
+var server = app.listen(3333, () => {
     console.log("Listening");
-})
+});
+
+function newConnection(socket) {
+    console.log("new connection: " + socket.id);
+    socket.on('update', update);
+
+    function update(data) {
+        socket.broadcast.emit('update', data);
+    }
+}

@@ -12,7 +12,7 @@ module.exports = class ItemController {
     }
 
     async listByUserId(req, res) {
-        const idPlayer = req.body.idPlayer;
+        const idPlayer = req.params.idPlayer;
         try {
             await db('item').where('idPlayer', '=', idPlayer).select(['nome', 'atributo']).then((item) => {
                 res.json(item);

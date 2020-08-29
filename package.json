@@ -4,7 +4,7 @@
     "description": "Remake of the rpgsystemexpress",
     "main": "index.js",
     "scripts": {
-        "start": "node app.js",
+        "start": "node-dev app.js",
         "knex:migrate": "knex --knexfile knexfile.js migrate:latest",
         "knex:migrate:rollback": "knex --knexfile knexfile.js migrate:rollback"
     },
@@ -26,5 +26,8 @@
         "knex": "^0.21.4",
         "socket.io": "^2.3.0",
         "sqlite3": "^5.0.0"
+    },
+    "devDependencies": {
+        "node-dev": "^5.1.0"
     }
 }

@@ -1,6 +1,16 @@
 const db = require('../database/connection');
 
-module.exports = class AtaqueController {
+module.exports = class ExposicaoController {
+
+    async index(req, res) {
+        try {
+            await db('exposicao').then((exposicao) => {
+                res.json(exposicao);
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
     async insertExposicao(req, res) {
         const exposicao = req.body;
 
@@ -20,7 +30,7 @@ module.exports = class AtaqueController {
     }
 
     async listByUserId(req, res) {
-        const idPlayer = req.body.idPlayer;
+        const idPlayer = req.params.idPlayer;
         try {
             await db('exposicao').where('idPlayer', '=', idPlayer).select(['inimigo', 'valor']).then((exposicao) => {
                 res.json(exposicao);

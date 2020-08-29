@@ -1,0 +1,23 @@
+.nav-pills .nav-link.active {
+    background-color: brown;
+}
+
+.nav {
+    margin-top: 2vh;
+    margin-left: 5vw;
+    width: max-content;
+    padding: 2px 4px;
+}
+
+.nav-link {
+    padding: 4px 8px;
+    line-height: 1.5;
+}
+
+a {
+    color: rgb(226, 17, 17);
+}
+
+a:hover {
+    color: brown;
+}
